@@ -34,25 +34,34 @@ public class PntTest {
 
   public static PntTest[] tests = {
       // @formatter:off
-      // I still have more datapoints to add
-      //new PntTest(0, -12, 2, 10), 
-      //new PntTest(0, -11, 2), 
-      //new PntTest(0, -10, 2), 
-      //new PntTest(0, -9, 2), 
-      //new PntTest(0, -8, 2), 
-      //new PntTest(0, -7, 2), 
-      //new PntTest(0, -6, 2), 
-      new PntTest(0, -5, 2), 
+      // should be about all the data points
+      new PntTest(-2, -14, 2), 
+      new PntTest(-2, -13, 3), 
+      new PntTest(0, -12, 2, 10), 
+      new PntTest(-1, -12, 2), 
+      new PntTest(0, -11, 2), 
+      new PntTest(0, -10, 2), 
+      new PntTest(0, -9, 2), 
+      new PntTest(0, -8, 2), 
+      new PntTest(0, -7, 2), 
+      new PntTest(0, -6, 2), 
+      new PntTest(-1, -6, 3, 10), 
+      new PntTest(0, -5, 2),
+      new PntTest(-1, -5, 2),
       new PntTest(0, -4, 3), 
+      new PntTest(-1, -4, 2),
       new PntTest(0, -3, 2), 
+      new PntTest(-1, -3, 2),
       new PntTest(0, -2, 2), 
       new PntTest(0, -1, 3), 
       new PntTest(0, 0, 3), 
       new PntTest(0, 1, 3), 
       new PntTest(0, 2, 2), 
-      //new PntTest(0, 3, 2, 10), 
-      //new PntTest(0, 4, 2), 
-      //new PntTest(0, 5, 2), 
+      new PntTest(0, 3, 2, 10), 
+      new PntTest(0, 4, 2), 
+      new PntTest(0, 5, 1, 2), 
+      new PntTest(3, 7, 3), 
+      new PntTest(4, 7, 3), 
 
       // @formatter:on
   };

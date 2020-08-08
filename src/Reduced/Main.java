@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.util.Random;
 
 public class Main {
-  public static final int samplesize = 20000 * 1; // like 100000 for decent results in like 2 minutes with 8 data points
+  // like 100000 for decent results in like 2 minutes with 8 data points
+  // like 1000000 for an undersampled 30-60 min run with almost all data points
+  // using all data points, total sample size across hosts should be > 100000000
+  public static final int samplesize = 1000000 * 1;
   public static final int seed = 0;
 
   public static final Random rand = new Random(seed);
@@ -17,6 +20,10 @@ public class Main {
   public static void main(String[] args) {
 
     // LocNoise.locnoise.printAll();
+
+    // new CPG().printAll();
+
+    // System.out.println("# tests: " + PntTest.tests.length);
 
     int[][] counts = new int[maxwfx - minwfx + 1][maxwfz - minwfz + 1];
 
