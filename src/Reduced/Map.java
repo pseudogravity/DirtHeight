@@ -1,10 +1,14 @@
 package Reduced;
 
 public abstract class Map {
-  public static int minchunkX = (Main.minwfx - 5) >> 4;
-  public static int maxchunkX = (Main.maxwfx + 5) >> 4;
-  public static int minchunkZ = (Main.minwfz - 14) >> 4; // inclusive
-  public static int maxchunkZ = (Main.maxwfz + 8) >> 4; // inclusive
+//  public static int minchunkX = (Main.minwfx - 5 - 22) >> 4;
+//  public static int maxchunkX = (Main.maxwfx + 5) >> 4;
+//  public static int minchunkZ = (Main.minwfz - 14) >> 4; // inclusive
+//  public static int maxchunkZ = (Main.maxwfz + 8 + 20) >> 4; // inclusive
+  public static int minchunkX = (Main.minwfx - 0) >> 4;
+  public static int maxchunkX = (Main.maxwfx + 3) >> 4;
+  public static int minchunkZ = (Main.minwfz - 0) >> 4; // inclusive
+  public static int maxchunkZ = (Main.maxwfz + 3) >> 4; // inclusive
 
   public double[][][][] rawbychunk = new double[maxchunkX - minchunkX + 1][maxchunkZ - minchunkZ + 1][16][16];
 
@@ -37,16 +41,16 @@ public abstract class Map {
   public void printAll() {
     System.out.println();
     for (int x = maxX(); x >= minX(); x--) {
-      System.out.printf("%3d    ", x);
+      System.out.printf("%3d\t", x);
       for (int z = minZ(); z <= maxZ(); z++) {
-        System.out.printf("%3.0f ", getRaw(x, z) * printMult);
+        System.out.printf("%3.0f\t", getRaw(x, z) * printMult);
       }
       System.out.println();
     }
     System.out.println();
-    System.out.print("x/z    ");
+    System.out.print("x/z\t");
     for (int z = minZ(); z <= maxZ(); z++) {
-      System.out.printf("%3d ", z);
+      System.out.printf("%3d\t", z);
     }
     System.out.println();
   }

@@ -4,33 +4,49 @@ import java.util.Random;
 
 public class CPG extends Map {
 
+  static CPG heightcpg = new CPG(false);
+  static CPG sandcpg = new CPG(true);
+
+  public static void genNew() {
+    heightcpg = new CPG(false);
+    sandcpg = new CPG(true);
+  }
+
   public Random rand;
-  private double[] heightField = new double[256];
-  private NoiseGeneratorOctaves surfaceElevation;
+  private double[] chunkgrid = new double[256];
+  private NoiseGeneratorOctaves ngo;
 
   public void replaceBlockForBiomes(int chunkX, int chunkZ) {
     double noiseFactor = 0.03125D;
-    this.heightField = this.surfaceElevation.func_807_a(this.heightField, (double) (chunkX * 16),
-        (double) (chunkZ * 16), 0.0D, 16, 16, 1, noiseFactor * 2.0D, noiseFactor * 2.0D, noiseFactor * 2.0D);
+    if (sand) {
+      this.chunkgrid = this.ngo.func_807_a(this.chunkgrid, (double) (chunkX * 16),
+          (double) (chunkZ * 16), 0.0D, 16, 16, 1, noiseFactor, noiseFactor, 1.0D);
+    } else {
+      this.chunkgrid = this.ngo.func_807_a(this.chunkgrid, (double) (chunkX * 16),
+          (double) (chunkZ * 16), 0.0D, 16, 16, 1, noiseFactor * 2.0D, noiseFactor * 2.0D, noiseFactor * 2.0D);
+    }
     for (int x = 0; x < 16; ++x) {
       for (int z = 0; z < 16; ++z) {
         // int var13 = (int) (this.field_903_t[x + z * 16] / 3.0D + 3.0D +
         // this.rand.nextDouble() * 0.25D);
-        rawbychunk[chunkX - minchunkX][chunkZ - minchunkZ][x][z] = this.heightField[x + z * 16] / 3.0D + 3.0D;
+        rawbychunk[chunkX - minchunkX][chunkZ - minchunkZ][x][z] = this.chunkgrid[x + z * 16];
       }
     }
   }
 
-  public CPG() {
+  boolean sand;
+
+  public CPG(boolean sand) {
+    this.sand = sand;
     this.rand = Main.rand;
-    this.surfaceElevation = new NoiseGeneratorOctaves(this.rand, 4);
+    this.ngo = new NoiseGeneratorOctaves(this.rand, 4);
     this.printMult = 10;
     genAll();
   }
 
-  public CPG(long seed) {
+  public CPG(boolean sand,long seed) {
     this.rand = new Random(seed);
-    this.surfaceElevation = new NoiseGeneratorOctaves(this.rand, 4);
+    this.ngo = new NoiseGeneratorOctaves(this.rand, 4);
     this.printMult = 10;
     genAll();
   }
