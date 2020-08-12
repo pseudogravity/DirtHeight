@@ -35,7 +35,7 @@ public abstract class PntTest {
     boolean qsand;
 
     public SandTest(int xoff, int zoff, boolean qsand) {
-      super(xoff - 27 * 0, zoff); // offset between first sand and waterfall
+      super(xoff - 27 * 1, zoff); // offset between first sand and waterfall
       this.qsand = qsand;
     }
 
