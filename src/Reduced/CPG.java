@@ -8,7 +8,7 @@ public class CPG extends Map {
   static CPG sandcpg = new CPG(true);
 
   public static void genNew() {
-    // heightcpg = new CPG(false);
+    heightcpg = new CPG(false);  // can comment out if only checking sand
     sandcpg = new CPG(true);
   }
 
