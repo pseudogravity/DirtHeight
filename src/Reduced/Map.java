@@ -1,10 +1,10 @@
 package Reduced;
 
 public abstract class Map {
-  public static int minchunkX = (Main.minwfx - 5 - 22 - 10) >> 4;
-  public static int maxchunkX = (Main.maxwfx + 5) >> 4;
-  public static int minchunkZ = (Main.minwfz - 14) >> 4; // inclusive
-  public static int maxchunkZ = (Main.maxwfz + 8 + 20 + 5) >> 4; // inclusive
+  public static int minchunkX = (Main.minwfx + PntTest.minxoff()) >> 4;
+  public static int maxchunkX = (Main.maxwfx + PntTest.maxxoff()) >> 4;
+  public static int minchunkZ = (Main.minwfz + PntTest.minzoff()) >> 4; // inclusive
+  public static int maxchunkZ = (Main.maxwfz + PntTest.maxzoff()) >> 4; // inclusive
 //  public static int minchunkX = (Main.minwfx - 0) >> 4;
 //  public static int maxchunkX = (Main.maxwfx + 3) >> 4;
 //  public static int minchunkZ = (Main.minwfz - 0) >> 4; // inclusive

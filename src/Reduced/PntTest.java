@@ -183,4 +183,64 @@ public abstract class PntTest {
     }
     return true;
   }
+
+  public static int minxoff() {
+    int min = Integer.MAX_VALUE;
+    for (PntTest test : sandtests) {
+      if (test.xoff < min) {
+        min = test.xoff;
+      }
+    }
+    for (PntTest test : heighttests) {
+      if (test.xoff < min) {
+        min = test.xoff;
+      }
+    }
+    return min;
+  }
+
+  public static int minzoff() {
+    int min = Integer.MAX_VALUE;
+    for (PntTest test : sandtests) {
+      if (test.zoff < min) {
+        min = test.zoff;
+      }
+    }
+    for (PntTest test : heighttests) {
+      if (test.zoff < min) {
+        min = test.zoff;
+      }
+    }
+    return min;
+  }
+
+  public static int maxxoff() {
+    int max = Integer.MIN_VALUE;
+    for (PntTest test : sandtests) {
+      if (test.xoff > max) {
+        max = test.xoff;
+      }
+    }
+    for (PntTest test : heighttests) {
+      if (test.xoff > max) {
+        max = test.xoff;
+      }
+    }
+    return max;
+  }
+
+  public static int maxzoff() {
+    int max = Integer.MIN_VALUE;
+    for (PntTest test : sandtests) {
+      if (test.zoff > max) {
+        max = test.zoff;
+      }
+    }
+    for (PntTest test : heighttests) {
+      if (test.zoff > max) {
+        max = test.zoff;
+      }
+    }
+    return max;
+  }
 }

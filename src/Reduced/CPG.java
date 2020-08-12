@@ -8,7 +8,7 @@ public class CPG extends Map {
   static CPG sandcpg = new CPG(true);
 
   public static void genNew() {
-    heightcpg = new CPG(false);  // can comment out if only checking sand
+    heightcpg = new CPG(false); // can comment out if only checking sand
     sandcpg = new CPG(true);
   }
 
@@ -19,11 +19,11 @@ public class CPG extends Map {
   public void replaceBlockForBiomes(int chunkX, int chunkZ) {
     double noiseFactor = 0.03125D;
     if (sand) {
-      this.chunkgrid = this.ngo.func_807_a(this.chunkgrid, (double) (chunkX * 16),
-          (double) (chunkZ * 16), 0.0D, 16, 16, 1, noiseFactor, noiseFactor, 1.0D);
+      this.chunkgrid = this.ngo.func_807_a(this.chunkgrid, (double) (chunkX * 16), (double) (chunkZ * 16), 0.0D, 16, 16,
+          1, noiseFactor, noiseFactor, 1.0D);
     } else {
-      this.chunkgrid = this.ngo.func_807_a(this.chunkgrid, (double) (chunkX * 16),
-          (double) (chunkZ * 16), 0.0D, 16, 16, 1, noiseFactor * 2.0D, noiseFactor * 2.0D, noiseFactor * 2.0D);
+      this.chunkgrid = this.ngo.func_807_a(this.chunkgrid, (double) (chunkX * 16), (double) (chunkZ * 16), 0.0D, 16, 16,
+          1, noiseFactor * 2.0D, noiseFactor * 2.0D, noiseFactor * 2.0D);
     }
     for (int x = 0; x < 16; ++x) {
       for (int z = 0; z < 16; ++z) {
@@ -44,7 +44,7 @@ public class CPG extends Map {
     genAll();
   }
 
-  public CPG(boolean sand,long seed) {
+  public CPG(boolean sand, long seed) {
     this.rand = new Random(seed);
     this.ngo = new NoiseGeneratorOctaves(this.rand, 4);
     this.printMult = 10;
