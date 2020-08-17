@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class LocNoise extends Map {
 
+  public static int minabschunkX = ((Main.minwfx + PntTest.minxoff()) >> 4);
+  public static int maxabschunkX = ((Main.maxwfx + PntTest.maxxoff()) >> 4) + 1; // inclusive+safety
+  public static int minabschunkZ = ((Main.minwfz + PntTest.minzoff()) >> 4);
+  public static int maxabschunkZ = ((Main.maxwfz + PntTest.maxzoff()) >> 4) + 1; // inclusive+safety
+
   static final LocNoise locnoise = new LocNoise();
 
   static double get(int x, int z) {
@@ -17,6 +22,9 @@ public class LocNoise extends Map {
     for (int dx = 0; dx < 16; dx++) {
       for (int dz = 0; dz < 16; dz++) {
         if (dx == (x & 15) && dz == (z & 15)) {
+          if (Main.sandmode) {
+            return rand.nextDouble();
+          }
           rand.nextDouble();
           rand.nextDouble();
           return rand.nextDouble();
@@ -30,6 +38,8 @@ public class LocNoise extends Map {
   }
 
   public LocNoise() {
+    super(minabschunkX, maxabschunkX, minabschunkZ, maxabschunkZ);
+    System.out.println("sandmode: " + Main.sandmode);
     genAll();
     this.printMult = 100;
   }
@@ -46,19 +56,8 @@ public class LocNoise extends Map {
   public void genChunk(int chunkX, int chunkZ) {
     for (int x = 0; x < 16; ++x) {
       for (int z = 0; z < 16; ++z) {
-        rawbychunk[chunkX - minchunkX][chunkZ - minchunkZ][x][z] = getNextDouble((chunkX << 4) + x, (chunkZ << 4) + z)
-            * 0.25D;
-        // System.out.println(rawbychunk[chunkX - minchunkX][chunkZ - minchunkZ][x][z]);
-        // System.out.println(getNextDouble((chunkX << 4) + x, (chunkZ << 4) + z) + " "
-        // + ((chunkX << 4) + x) + " " + ((chunkZ << 4) + z));
+        rawbychunk[chunkX - minchunkX][chunkZ - minchunkZ][x][z] = getNextDouble((chunkX << 4) + x, (chunkZ << 4) + z);
       }
     }
   }
-
-  // public static void main(String[] args) {
-  // LocNoise ln = new LocNoise();
-  // ln.printAll();
-  // System.out.println(getNextDouble(0, 0));
-  // System.out.println(getNextDouble(0, 1));
-  // }
 }
