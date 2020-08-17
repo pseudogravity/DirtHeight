@@ -16,17 +16,17 @@ public class NoiseGeneratorOctaves {
 
   }
 
-  public double func_806_a(double var1, double var3) {
-    double var5 = 0.0D;
-    double var7 = 1.0D;
-
-    for (int var9 = 0; var9 < this.field_1191_b; ++var9) {
-      var5 += this.field_1192_a[var9].func_801_a(var1 * var7, var3 * var7) / var7;
-      var7 /= 2.0D;
-    }
-
-    return var5;
-  }
+//  public double func_806_a(double var1, double var3) {
+//    double var5 = 0.0D;
+//    double var7 = 1.0D;
+//
+//    for (int var9 = 0; var9 < this.field_1191_b; ++var9) {
+//      var5 += this.field_1192_a[var9].func_801_a(var1 * var7, var3 * var7) / var7;
+//      var7 /= 2.0D;
+//    }
+//
+//    return var5;
+//  }
 
   public double[] func_807_a(double[] var1, double var2, double var4, double var6, int var8, int var9, int var10,
       double var11, double var13, double var15) {
@@ -49,8 +49,8 @@ public class NoiseGeneratorOctaves {
     return var1;
   }
 
-  public double[] func_4109_a(double[] var1, int var2, int var3, int var4, int var5, double var6, double var8,
-      double var10) {
-    return this.func_807_a(var1, (double) var2, 10.0D, (double) var3, var4, 1, var5, var6, 1.0D, var8);
-  }
+//  public double[] func_4109_a(double[] var1, int var2, int var3, int var4, int var5, double var6, double var8,
+//      double var10) {
+//    return this.func_807_a(var1, (double) var2, 10.0D, (double) var3, var4, 1, var5, var6, 1.0D, var8);
+//  }
 }

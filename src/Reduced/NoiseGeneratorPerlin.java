@@ -8,9 +8,9 @@ public class NoiseGeneratorPerlin {
   public double yCoord;
   public double zCoord;
 
-  public NoiseGeneratorPerlin() {
-    this(new Random());
-  }
+//  public NoiseGeneratorPerlin() {
+//    this(new Random());
+//  }
 
   public NoiseGeneratorPerlin(Random var1) {
     this.xCoord = var1.nextDouble() * 256.0D;
@@ -31,52 +31,52 @@ public class NoiseGeneratorPerlin {
 
   }
 
-  public double generateNoise(double var1, double var3, double var5) {
-    double var7 = var1 + this.xCoord;
-    double var9 = var3 + this.yCoord;
-    double var11 = var5 + this.zCoord;
-    int var13 = (int) var7;
-    int var14 = (int) var9;
-    int var15 = (int) var11;
-    if (var7 < (double) var13) {
-      --var13;
-    }
-
-    if (var9 < (double) var14) {
-      --var14;
-    }
-
-    if (var11 < (double) var15) {
-      --var15;
-    }
-
-    int var16 = var13 & 255;
-    int var17 = var14 & 255;
-    int var18 = var15 & 255;
-    var7 = var7 - (double) var13;
-    var9 = var9 - (double) var14;
-    var11 = var11 - (double) var15;
-    double var19 = var7 * var7 * var7 * (var7 * (var7 * 6.0D - 15.0D) + 10.0D);
-    double var21 = var9 * var9 * var9 * (var9 * (var9 * 6.0D - 15.0D) + 10.0D);
-    double var23 = var11 * var11 * var11 * (var11 * (var11 * 6.0D - 15.0D) + 10.0D);
-    int var25 = this.permutations[var16] + var17;
-    int var26 = this.permutations[var25] + var18;
-    int var27 = this.permutations[var25 + 1] + var18;
-    int var28 = this.permutations[var16 + 1] + var17;
-    int var29 = this.permutations[var28] + var18;
-    int var30 = this.permutations[var28 + 1] + var18;
-    return this.lerp(var23,
-        this.lerp(var21,
-            this.lerp(var19, this.grad(this.permutations[var26], var7, var9, var11),
-                this.grad(this.permutations[var29], var7 - 1.0D, var9, var11)),
-            this.lerp(var19, this.grad(this.permutations[var27], var7, var9 - 1.0D, var11),
-                this.grad(this.permutations[var30], var7 - 1.0D, var9 - 1.0D, var11))),
-        this.lerp(var21,
-            this.lerp(var19, this.grad(this.permutations[var26 + 1], var7, var9, var11 - 1.0D),
-                this.grad(this.permutations[var29 + 1], var7 - 1.0D, var9, var11 - 1.0D)),
-            this.lerp(var19, this.grad(this.permutations[var27 + 1], var7, var9 - 1.0D, var11 - 1.0D),
-                this.grad(this.permutations[var30 + 1], var7 - 1.0D, var9 - 1.0D, var11 - 1.0D))));
-  }
+//  public double generateNoise(double var1, double var3, double var5) {
+//    double var7 = var1 + this.xCoord;
+//    double var9 = var3 + this.yCoord;
+//    double var11 = var5 + this.zCoord;
+//    int var13 = (int) var7;
+//    int var14 = (int) var9;
+//    int var15 = (int) var11;
+//    if (var7 < (double) var13) {
+//      --var13;
+//    }
+//
+//    if (var9 < (double) var14) {
+//      --var14;
+//    }
+//
+//    if (var11 < (double) var15) {
+//      --var15;
+//    }
+//
+//    int var16 = var13 & 255;
+//    int var17 = var14 & 255;
+//    int var18 = var15 & 255;
+//    var7 = var7 - (double) var13;
+//    var9 = var9 - (double) var14;
+//    var11 = var11 - (double) var15;
+//    double var19 = var7 * var7 * var7 * (var7 * (var7 * 6.0D - 15.0D) + 10.0D);
+//    double var21 = var9 * var9 * var9 * (var9 * (var9 * 6.0D - 15.0D) + 10.0D);
+//    double var23 = var11 * var11 * var11 * (var11 * (var11 * 6.0D - 15.0D) + 10.0D);
+//    int var25 = this.permutations[var16] + var17;
+//    int var26 = this.permutations[var25] + var18;
+//    int var27 = this.permutations[var25 + 1] + var18;
+//    int var28 = this.permutations[var16 + 1] + var17;
+//    int var29 = this.permutations[var28] + var18;
+//    int var30 = this.permutations[var28 + 1] + var18;
+//    return this.lerp(var23,
+//        this.lerp(var21,
+//            this.lerp(var19, this.grad(this.permutations[var26], var7, var9, var11),
+//                this.grad(this.permutations[var29], var7 - 1.0D, var9, var11)),
+//            this.lerp(var19, this.grad(this.permutations[var27], var7, var9 - 1.0D, var11),
+//                this.grad(this.permutations[var30], var7 - 1.0D, var9 - 1.0D, var11))),
+//        this.lerp(var21,
+//            this.lerp(var19, this.grad(this.permutations[var26 + 1], var7, var9, var11 - 1.0D),
+//                this.grad(this.permutations[var29 + 1], var7 - 1.0D, var9, var11 - 1.0D)),
+//            this.lerp(var19, this.grad(this.permutations[var27 + 1], var7, var9 - 1.0D, var11 - 1.0D),
+//                this.grad(this.permutations[var30 + 1], var7 - 1.0D, var9 - 1.0D, var11 - 1.0D))));
+//  }
 
   public final double lerp(double var1, double var3, double var5) {
     return var3 + var1 * (var5 - var3);
@@ -96,9 +96,9 @@ public class NoiseGeneratorPerlin {
     return ((var8 & 1) == 0 ? var9 : -var9) + ((var8 & 2) == 0 ? var11 : -var11);
   }
 
-  public double func_801_a(double var1, double var3) {
-    return this.generateNoise(var1, var3, 0.0D);
-  }
+//  public double func_801_a(double var1, double var3) {
+//    return this.generateNoise(var1, var3, 0.0D);
+//  }
 
   public void func_805_a(double[] var1, double var2, double var4, double var6, int var8, int var9, int var10,
       double var11, double var13, double var15, double var17) {
